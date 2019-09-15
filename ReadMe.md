@@ -1,4 +1,4 @@
-# Talk on &ldquo;Learning Trees and Forests&rdquo;
+# Talk on &ldquo;Entropy&rdquo;
 
 Here you can find the [notes](https://github.com/aaronpeikert/12Monkeys/releases/download/final/12monkeys_withnotes.pdf), [dark slides](https://github.com/aaronpeikert/12Monkeys/releases/download/final/12monkeys.pdf) & [bright slides](https://github.com/aaronpeikert/12Monkeys/releases/download/final/12monkeys_bright.pdf).
 

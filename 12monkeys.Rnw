@@ -1,0 +1,197 @@
+\documentclass[12pt,t]{beamer}
+\usepackage{graphicx}
+\usepackage{tikz}
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}[plain]
+\usepackage{listings}
+
+\input{header.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end of header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% title info
+
+\title{12 Monkeys}
+\author{\href{https://github.com/aaronpeikert/}{Aaron Peikert}}
+\institute{Humboldt{\textendash}Universität zu Berlin\\
+Max Planck Institute of Human Development
+}
+\date{
+\scriptsize {\lolit Slides:} \href{https://github.com/aaronpeikert/12Monkeys}{\tt \scriptsize
+  \color{foreground} https://github.com/aaronpeikert/12Monkeys}
+}
+
+
+\begin{document}
+
+% title slide
+{
+{
+\setbeamertemplate{footline}{} % no page number here
+\frame{
+  \titlepage
+
+  \vfill \hfill \includegraphics[height=6mm]{Figs/cc-zero.png} \vspace*{-1cm}
+
+  \note{These Slides are for a short Talk (12min) meant as an introduction to entropy. It covers only the basic definition as well as conditional entropy.
+
+    Source: {\tt https://github.com/aaronpeikert/12Monkeys}
+}}
+}
+
+\begin{frame}[c]{ἐντροπία}
+  \begin{center}
+  \large
+  ``Oh, wouldn't it be great if I was crazy?\\Then the world would be okay."
+  \end{center}
+  \hfill {\textendash} James Cole
+\end{frame}
+
+{
+  \usebackgroundtemplate{\includegraphics[width=\paperwidth]{Figs/monkey_typewriter.jpg}}
+  \begin{frame}[plain]
+  \end{frame}
+}
+
+\begin{frame}[c]{12 Monkeys}
+  \begin{center}
+    \only<1|handout:1>{\textcolor{hilit}{Scene I}:\\ 12 Monkeys and Shakespear hacking on typewriters\\}
+    \only<2|handout:1>{\textcolor{hilit}{Scene II}:\\ \textcolor{lolit}{<An information theorist appears, talking to himself>} \\ These monkeys are impressive, but the old man \ldots}
+  \end{center}
+\end{frame}
+
+\begin{frame}[c]{Why?}
+    \centering
+    \onslide<1-4|handout:1>{\centering \textcolor<3-|handout:0>{lolit}{\Huge{Information}}}\onslide<3-|handout:1>{\centering \Huge{ loss}}\\
+    \onslide<2-4|handout:1>{\centering \textcolor<3-|handout:0>{lolit}{\Huge{Uncertainty}}}\onslide<3-|handout:1>{\centering \Huge{ reduction}}\\
+    \onslide<4|handout:1>{\centering \textcolor{hilit}{\small{The future is history.}}}
+\end{frame}
+
+\begin{frame}[c]{Rough Approximation}
+    \centering
+    \large
+    \onslide<1-2|handout:1>{\textcolor<2|handout:0>{lolit}{$Information \approx Number\ of\ Ways$}}\\
+    \onslide<2-|handout:1>{$Information \approx N$}\\
+    \onslide<3|handout:1>{\textcolor{lolit}{$H = k_{\rm B} \ln N$\\Boltzmann--Gibbs entropy}}
+\end{frame}
+
+\begin{frame}[c]{Sheer Number}
+    \centering
+    \textcolor{lolit}{$Information \approx N$}\\
+    \textcolor{hilit}{12} Monkeys > \textcolor{vhilit}{1} Shakespear
+\end{frame}
+
+\begin{frame}[c]{One Monkey}
+  \begin{center}
+    \large
+    \onslide<1-|handout:1>{\textcolor<2|handout:0>{lolit}{Common sense:\\\textcolor{hilit}{1} Monkey < \textcolor{hilit}{1} Shakespear}\\}
+    \onslide<2|handout:1>{Information theory:\\\textcolor{hilit}{1} Monkey > \textcolor{hilit}{1} Shakespear}
+  \end{center}
+\end{frame}
+
+\begin{frame}[c]{Why?}
+    \centering
+    \large
+    $$Information \approx N \cdot predictable^{-1}$$
+\end{frame}
+
+\begin{frame}[c]{$predictable^{-1}$}
+    \centering
+    \large
+    Learning from the unexpected
+\end{frame}
+
+\begin{frame}[c]{$p_i = P(x_i)$}
+    \centering
+    \large
+    \onslide<1-|handout:1>{\textcolor<2|handout:0>{lolit}{Probability = language of uncertainty}\\}
+    \onslide<2|handout:1>{$$predictable^{-1} = p_i \cdot log(1/p_i)$$}
+\end{frame}
+
+\begin{frame}[c]{ἐντροπία --- Entropy}
+    \centering
+    \large
+    $$H(P)=\sum_{i = 1}^{n} p_i \cdot log(1/p_i)$$
+\end{frame}
+
+\begin{frame}[fragile]{$p_i \cdot log(1/p_i)$}
+    \centering
+    <<plot, warning=FALSE, message=FALSE, fig.width=8,fig.height=4,out.width='\\linewidth', fig.path=('Figs/')>>=
+    library(tidyverse)
+    tb <- tibble(p = seq(0, 1, length.out = 1e5),
+                 h = p*log(1/p))
+    ggplot(tb, aes(p, h)) + geom_line() + theme_bw()
+    @
+\end{frame}
+
+\begin{frame}[fragile]{$p_i \cdot log(1/p_i)$}
+    \centering
+    <<plot2, warning=FALSE, message=FALSE, fig.width=8,fig.height=4,out.width='\\linewidth', fig.path=('Figs/')>>=
+    library(tidyverse)
+    tb <- tibble(p = seq(0, 1, length.out = 1e5),
+                 h = p*log(1/p) + (1-p)*log(1/(1-p)))
+    ggplot(tb, aes(p, h)) + geom_line() + theme_bw()
+    @
+\end{frame}
+
+{
+  \usebackgroundtemplate{\includegraphics[width=\paperwidth]{Figs/tv_clear0.png}}
+  \begin{frame}[plain]
+    \centering
+    \large
+    \onslide<2|handout:1>Gibbs' inequality
+  \end{frame}
+}
+
+\begin{frame}[c]{Conditional Entropy}
+  \centering
+  \large
+  \onslide<1-|handout:1>\textcolor<2-|handout:0>{lolit}{$$H(X) = -\sum p(x)\log \frac {1} {p(x)}$$}
+  \onslide<2-|handout:1>\textcolor<3-|handout:0>{lolit}{$$H(Y|X) = -\sum p(x,y)\log \frac {p(x,y)} {p(x)}$$}
+  \onslide<3>$H(X)\geq H(Y|X)$
+\end{frame}
+
+\begin{frame}[c]{Bayes' Rule}
+    \centering
+    \large
+    \onslide<1-2|handout:1>\textcolor<2|handout:0>{lolit}{$$H(X)-H(X|Y)=H(Y)-H(Y|X)$$}
+    \onslide<2-|handout:1>$$H(Y|X) = H(X|Y) - H(X) + H(Y)$$
+\end{frame}
+
+{
+  \usebackgroundtemplate{\includegraphics[width=\paperwidth]{Figs/tv_end0.png}}
+  \begin{frame}[plain]
+  \end{frame}
+}
+
+\begin{frame}
+
+\Large
+
+\vspace{10mm}
+
+\scriptsize {\lolit Source:} \href{https://github.com/aaronpeikert/12Monkeys}{\tt \scriptsize
+  \color{foreground} https://github.com/aaronpeikert/12Monkeys} \quad
+\includegraphics[height=5mm]{Figs/cc-zero.png}
+
+\vspace{10mm}
+
+\scriptsize {\lolit Slidedesign:} \href{https://github.com/kbroman/Talk_ReproRes}{\tt \scriptsize
+  \color{foreground} shamelessly copied from \emph{Karl Broman} \quad}
+
+\vspace{10mm}
+
+\scriptsize {\lolit Github:} \href{https://github.com/aaronpeikert/}{\tt \color{foreground} github.com/aaronpeikert/}
+
+\vspace{10mm}
+
+\scriptsize {\lolit Mail:} \tt aaron.peikert@posteo.de
+
+\note{
+  Here's where you can find me, as well as the slides for this talk.
+}
+\end{frame}
+
+\end{document}

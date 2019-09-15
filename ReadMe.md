@@ -1,6 +1,6 @@
 # Talk on &ldquo;Learning Trees and Forests&rdquo;
 
-Here you can find the [notes](https://github.com/aaronpeikert/12Monkeys/releases/download/seminar_final/forest_withnotes.pdf), [dark slides](https://github.com/aaronpeikert/12Monkeys/releases/download/seminar_final/forest.pdf) & [bright slides](https://github.com/aaronpeikert/12Monkeys/releases/download/seminar_final/forest_bright.pdf).
+Here you can find the [notes](https://github.com/aaronpeikert/12Monkeys/releases/download/final/12monkeys_withnotes.pdf), [dark slides](https://github.com/aaronpeikert/12Monkeys/releases/download/final/12monkeys.pdf) & [bright slides](https://github.com/aaronpeikert/12Monkeys/releases/download/final/12monkeys_bright.pdf).
 
 ---
 

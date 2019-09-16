@@ -155,9 +155,9 @@ Max Planck Institute of Human Development
 \begin{frame}[c]{Conditional Entropy}
   \centering
   \large
-  \onslide<1-|handout:1>\textcolor<2-|handout:0>{lolit}{$$H(X) = -\sum p(x)\log \frac {1} {p(x)}$$}
-  \onslide<2-|handout:1>\textcolor<3-|handout:0>{lolit}{$$H(Y|X) = -\sum p(x,y)\log \frac {p(x,y)} {p(x)}$$}
-  \onslide<3>$H(X)\geq H(Y|X)$
+  \onslide<1-|handout:1>\textcolor<2-|handout:0>{lolit}{$$H(X) = \sum p(x)\log \frac {1} {p(x)}$$}
+  \onslide<2-|handout:1>\textcolor<3-|handout:0>{lolit}{$$H(Y|X) = \sum p(x,y)\log \frac {p(x,y)} {p(x)}$$}
+  \onslide<3>$H(X)\geq H(X|Y)$
 \end{frame}
 
 \begin{frame}[c]{Bayes' Rule}

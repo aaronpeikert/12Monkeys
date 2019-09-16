@@ -9,4 +9,5 @@
 *.toc
 *.vrb
 Examples/
-*.tex
+12monkeys.tex
+*.pdfpc

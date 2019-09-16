@@ -80,7 +80,7 @@ Max Planck Institute of Human Development
 \begin{frame}[c]{Sheer Number}
     \centering
     \textcolor{lolit}{$Information \approx N$}\\
-    \textcolor{hilit}{12} Monkeys > \textcolor{vhilit}{1} Shakespear
+    \textcolor{hilit}{12} Monkeys > \textcolor{hilit}{1} Shakespear
 \end{frame}
 
 \begin{frame}[c]{One Monkey}
@@ -102,6 +102,12 @@ Max Planck Institute of Human Development
     \large
     Learning from the unexpected
 \end{frame}
+
+{
+  \usebackgroundtemplate{\includegraphics[width=\paperwidth]{Figs/tv_clear0.png}}
+  \begin{frame}[plain]
+  \end{frame}
+}
 
 \begin{frame}[c]{$p_i = P(x_i)$}
     \centering
@@ -126,7 +132,7 @@ Max Planck Institute of Human Development
     @
 \end{frame}
 
-\begin{frame}[fragile]{$p_i \cdot log(1/p_i)$}
+\begin{frame}[fragile]{$\sum p_i \cdot log(1/p_i)$}
     \centering
     <<plot2, warning=FALSE, message=FALSE, fig.width=8,fig.height=4,out.width='\\linewidth', fig.path=('Figs/')>>=
     library(tidyverse)
@@ -141,7 +147,8 @@ Max Planck Institute of Human Development
   \begin{frame}[plain]
     \centering
     \large
-    \onslide<2|handout:1>Gibbs' inequality
+    \onslide<2-|handout:1>Gibbs' inequality
+    \onslide<3|handout:1>$$log(x)\leq x - 1$$
   \end{frame}
 }
 
@@ -158,6 +165,14 @@ Max Planck Institute of Human Development
     \large
     \onslide<1-2|handout:1>\textcolor<2|handout:0>{lolit}{$$H(X)-H(X|Y)=H(Y)-H(Y|X)$$}
     \onslide<2-|handout:1>$$H(Y|X) = H(X|Y) - H(X) + H(Y)$$
+\end{frame}
+
+\begin{frame}[c]{Lossless}
+  \begin{center}
+  \large
+  \onslide<1|handout:1>``N i.i.d. random variables each with entropy H(X) can be compressed into more than N H(X) bits with negligible risk of information loss, as N → ∞; but conversely, if they are compressed into fewer than N H(X) bits it is virtually certain that information will be lost."
+  \end{center}
+  \hfill {\textendash} Shannon 1948
 \end{frame}
 
 {
